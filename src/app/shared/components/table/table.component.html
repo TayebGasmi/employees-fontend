@@ -1,0 +1,15 @@
+<table *ngIf="data$ | async as data">
+  <thead>
+
+  <tr>
+    <th *ngFor="let header of headers">{{ header.displayName || header.dataKey }}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of data$ | async">
+    <td *ngFor="let column of columns">
+      {{ column.dataTransform ? column.dataTransform(row[column.dataKey]) : row[column.dataKey] }}
+    </td>
+  </tr>
+  </tbody>
+</table>

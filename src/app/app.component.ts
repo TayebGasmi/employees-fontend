@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {Observable, of} from "rxjs";
+import {TableColumnHeader} from "./core/models/tableColumnHeader";
+import {Skill} from "./core/models/skill";
+import {TableColumn} from "./core/models/tableColumn";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  data$:Observable<Skill[]>=of([{name:"react"},{name:"php"},{name:"react"},{name:"php"}])
+  headers:TableColumnHeader[]=[{dataKey:'name'}]
+  columns:TableColumn[]=[{dataKey:'name'}]
+
 }
