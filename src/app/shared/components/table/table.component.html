@@ -10,6 +10,10 @@
     <td *ngFor="let column of columns">
       {{ column.dataTransform ? column.dataTransform(row[column.dataKey]) : row[column.dataKey] }}
     </td>
+
+
   </tr>
+
   </tbody>
+
 </table>
