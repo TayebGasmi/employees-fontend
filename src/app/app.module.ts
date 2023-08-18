@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './shared/components/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TaskModule } from './module/task/task.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
