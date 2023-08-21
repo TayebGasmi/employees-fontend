@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <i class="bi bi-plus-circle"></i>
+
+
+
+</nav>
+<div *ngFor="let task of allTasks">
+  <app-task-card
+  [task]="task"
+  >
+
+  </app-task-card>
+</div>
+
