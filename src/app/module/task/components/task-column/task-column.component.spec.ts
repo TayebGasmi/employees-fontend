@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaskSideNavComponent } from './task-side-nav.component';
+import { TaskColumnComponent } from './task-column.component';
 
-describe('TaskSideNavComponent', () => {
-  let component: TaskSideNavComponent;
-  let fixture: ComponentFixture<TaskSideNavComponent>;
+describe('TaskColumnComponent', () => {
+  let component: TaskColumnComponent;
+  let fixture: ComponentFixture<TaskColumnComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaskSideNavComponent ]
+      declarations: [ TaskColumnComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TaskSideNavComponent);
+    fixture = TestBed.createComponent(TaskColumnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
