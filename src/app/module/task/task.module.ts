@@ -10,6 +10,7 @@ import { TaskBadgeComponent } from './components/task-badge/task-badge.component
 
 
 
+
 @NgModule({
   declarations: [
     TaskPageComponent,
@@ -19,6 +20,7 @@ import { TaskBadgeComponent } from './components/task-badge/task-badge.component
     TaskColumnComponent,
     TaskBadgeComponent
   ],
+  providers:[],
   exports:[TaskPageComponent,TaskCardComponent],
   imports: [
     CommonModule

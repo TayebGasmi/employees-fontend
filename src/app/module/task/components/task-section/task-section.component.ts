@@ -26,6 +26,9 @@ export class TaskSectionComponent implements OnInit{
    this.getTasks();
 
   }
+  public refresh(id:String){
+    console.log(id);
+  }
   public  getTasks():void{
     this.taskService.getAllUndeletedTasks().subscribe(tasks=>{
       this.allTasks = tasks;
@@ -55,6 +58,7 @@ export class TaskSectionComponent implements OnInit{
      console.log(this.allToDogTasks);
  */
    });
+
   }
 
 }

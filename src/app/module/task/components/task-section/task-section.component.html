@@ -1,15 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-    <i class="bi bi-plus-circle"></i>
 
 
+<div class="d-flex flex-column overflow-auto" style="max-height: 800px;">
+  <div class="p-1">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="d-flex " >
+        <div class="p-2">
 
-</nav>
-<div *ngFor="let task of allTasks">
-  <app-task-card
-  [task]="task"
-  >
+        </div>
 
-  </app-task-card>
+        <div class="ml-auto  p-1   "  >
+          <button type="button" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Create New Task" ><i class="bi bi-plus"></i></button>
+        </div>
+      </div>
+
+   </nav>
+  </div>
+  <div class="p-2 mx-auto">
+    <div *ngFor="let task of allTasks" >
+      <app-task-card
+      [task]="task"
+
+      >
+
+      </app-task-card>
+    </div>
+  </div>
+
 </div>
-
