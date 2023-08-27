@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { TaskPageComponent } from './components/task-page/task-page.component';
 const routes: Routes = [
   {
-    path:"tasks",
+    path:"",
     children: [
       {
-        path: "task-home-page",
+        path: "",
         component: TaskPageComponent,
       }
     ],
