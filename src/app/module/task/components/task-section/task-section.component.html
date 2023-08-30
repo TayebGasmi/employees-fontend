@@ -1,0 +1,25 @@
+
+
+<div class="d-flex flex-column overflow-auto" style="max-height: 800px;">
+  <div class="p-1">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="d-flex justify-content-end" >
+        <div class="p-2"  >
+          <button (click)="openModalWithComponent()" type="button" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Create New Task" ><i  class="bi bi-plus"></i></button>
+        </div>
+      </div>
+
+   </nav>
+  </div>
+  <div class="p-2 mx-auto">
+    <div *ngFor="let task of allTasks" >
+      <app-task-card
+      [task]="task"
+
+      >
+
+      </app-task-card>
+    </div>
+  </div>
+
+</div>

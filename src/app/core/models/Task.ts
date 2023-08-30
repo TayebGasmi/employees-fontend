@@ -1,10 +1,13 @@
-import {TaskType} from "./TaskType";
+import { TaskStatus } from "./task-status.enum";
+import { TaskType } from "./task-type.enum";
 
-export class Skill{
-  taskId!:String;
-  taskType!:TaskType
+export class Task{
+  id!:String;
+  taskType!:TaskType;
   taskDescription!:String;
   taskTime!:number;
   taskTitle!:string;
-  taskEstimmation!:number;
+  taskEstimation!:number;
+  taskStatus!:TaskStatus;
+
 }
