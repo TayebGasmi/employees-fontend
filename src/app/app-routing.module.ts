@@ -5,6 +5,10 @@ const routes: Routes = [
   {
    path:'tasks',
    loadChildren: ()=> import('./module/task/task.module').then(m=>m.TaskModule)
+},
+{
+  path:'dash',
+  loadChildren: ()=> import('./module/dashboarding/dashboarding.module').then(m=>m.DashboardingModule)
 }
 ];
 

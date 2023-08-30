@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SortableModule } from 'ngx-bootstrap/sortable';
+import { DashboardingModule } from './module/dashboarding/dashboarding.module';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ import { SortableModule } from 'ngx-bootstrap/sortable';
     AppRoutingModule,
     BrowserAnimationsModule,
     TaskModule,
+    DashboardingModule,
     HttpClientModule,
     ModalModule.forRoot(),
     ReactiveFormsModule,
-    SortableModule.forRoot()
+    SortableModule.forRoot(),
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent]
