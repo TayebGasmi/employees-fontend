@@ -1,19 +1,63 @@
-<div class="sprint-section-background"  style="max-height: 800px;">
+<div class="sprint-section-background"  style="max-height: 100%;">
+  <div class="p-1">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="d-flex justify-content-end" >
+        <div class="p-2"  >
+          <button  type="button" (click)="openModel()" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Create New Sprint" ><i  class="bi bi-plus"></i></button>
+        </div>
+        <div class="p-2"  >
+          <select #sprint id="sprints" class="form-control" (click)="selectSprint(sprint.value)"  >
+            <option value="" disabled selected>Select your option</option>
+            <option *ngFor="let sprint of sprints"   [value]="sprint.id">{{sprint.sprintTitle}} </option>
+          </select>
+        </div>
+        <<ng-container *ngIf="isClicked">
+        <div class="p-2" >
+          <button  type="button" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Edit Sprint" ><i  class="bi bi-pencil p-1"></i></button>
+        </div>
+        <div class="p-2"  >
+          <button  type="button" (click)="deleteSprint(sprint.value)" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Delete Sprint" ><i class="bi bi-trash3 p-1"></i></button>
+        </div>
+      </ng-container>
+      </div>
+
+   </nav>
+  </div>
 <div class="row" >
   <div class="col" >
-    <app-task-column></app-task-column>
+    <app-task-column
+    [title]="'To DO'"
+    [tasks]="allToDoTasks"
+    >
+  </app-task-column>
 </div>
   <div class="col" >
-    <app-task-column></app-task-column>
+    <app-task-column
+    [title]="'In Progress'"
+    [tasks]="allInProgressTasks"
+    >
+
+    </app-task-column>
   </div>
   <div class="col">
-    <app-task-column></app-task-column>
+    <app-task-column
+    [title]="'Reveiw'"
+    [tasks]="allUnderReviewTasks"
+    >
+
+    </app-task-column>
   </div>
   <div class="col">
-    <app-task-column></app-task-column>
+    <app-task-column
+    [title]="'Test'"
+    [tasks]="allTestTasks">
+  </app-task-column>
   </div>
   <div class="col">
-    <app-task-column></app-task-column>
+    <app-task-column
+    [title]="'Done'"
+    [tasks]="allDoneTasks"
+    ></app-task-column>
   </div>
 </div>
 </div>

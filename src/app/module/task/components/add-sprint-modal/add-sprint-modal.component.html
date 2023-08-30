@@ -1,0 +1,32 @@
+<div >
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add New Sprint</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="form" [formGroup]="addSprintForm" (ngSubmit)="onSubmit(addSprintForm)">
+      <div class="mb-3"  >
+        <label for="taskTitle" class="form-label">Sprint Title</label>
+        <input type="text" formControlName="sprintTitle" class="form-control"  placeholder="title">
+      </div>
+       <div class="mb-3">
+        <label for="taskDescription" class="form-label">Sprint Description</label>
+        <textarea class="form-control" formControlName="sprintDescription" rows="3" placeholder="description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="taskEstimation" class="form-label">Sprint Start Date</label>
+        <input type="date" class="form-control" formControlName="startDate"  >
+      </div>
+      <div class="mb-3">
+        <label for="taskTime" class="form-label">Sprint End Date</label>
+        <input type="date"  class="form-control" formControlName="endDate">
+      </div>
+      <div class="mb-3 d-flex justify-content-center" >
+    <button type="submit" class="btn btn-success"  >save</button>
+      </div>
+    </form>
+  </div>
+
+  </div>

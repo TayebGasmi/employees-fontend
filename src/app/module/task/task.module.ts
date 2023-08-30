@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { TaskPageComponent } from './components/task-page/task-page.component';
 
 import { TaskCardComponent } from './components/task-card/task-card.component';
@@ -7,6 +7,11 @@ import { SprintSectionComponent } from './components/sprint-section/sprint-secti
 import { TaskSectionComponent } from './components/task-section/task-section.component';
 import { TaskColumnComponent } from './components/task-column/task-column.component';
 import { TaskBadgeComponent } from './components/task-badge/task-badge.component';
+import { AddTaskModalComponent } from './components/add-task-modal/add-task-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditTaskModalComponent } from './components/edit-task-modal/edit-task-modal.component';
+import { AddSprintModalComponent } from './components/add-sprint-modal/add-sprint-modal.component';
+import { EditSprintModalComponent } from './components/edit-sprint-modal/edit-sprint-modal.component';
 
 
 
@@ -18,12 +23,17 @@ import { TaskBadgeComponent } from './components/task-badge/task-badge.component
     SprintSectionComponent,
     TaskSectionComponent,
     TaskColumnComponent,
-    TaskBadgeComponent
+    TaskBadgeComponent,
+    AddTaskModalComponent,
+    EditTaskModalComponent,
+    AddSprintModalComponent,
+    EditSprintModalComponent
   ],
-  providers:[],
+  providers:[DatePipe],
   exports:[TaskPageComponent,TaskCardComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ]
 })
 export class TaskModule { }
