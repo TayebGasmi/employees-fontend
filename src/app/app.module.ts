@@ -7,7 +7,9 @@ import { TableComponent } from './shared/components/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskModule } from './module/task/task.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SortableModule } from 'ngx-bootstrap/sortable';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     TaskModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
+    SortableModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

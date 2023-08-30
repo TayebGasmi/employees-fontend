@@ -3,13 +3,9 @@
 <div class="d-flex flex-column overflow-auto" style="max-height: 800px;">
   <div class="p-1">
     <nav class="navbar navbar-dark bg-dark">
-      <div class="d-flex " >
-        <div class="p-2">
-
-        </div>
-
-        <div class="ml-auto  p-1   "  >
-          <button type="button" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Create New Task" ><i class="bi bi-plus"></i></button>
+      <div class="d-flex justify-content-end" >
+        <div class="p-2"  >
+          <button (click)="openModalWithComponent()" type="button" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Create New Task" ><i  class="bi bi-plus"></i></button>
         </div>
       </div>
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { Task } from 'src/app/core/models/Task';
 import { TaskStatus } from 'src/app/core/models/task-status.enum';
 import { TaskType } from 'src/app/core/models/task-type.enum';
 import { TaskService } from 'src/app/core/service/TaskService';
+import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.component';
 
 @Component({
   selector: 'app-task-section',
@@ -17,10 +19,10 @@ export class TaskSectionComponent implements OnInit{
   allUnderReviewTasks :Task[] = [];
   allTestTasks :Task[] = [];
   allDoneTasks :Task[] = [];
+  bsModalRef?: BsModalRef;
 
 
-
-  constructor(private taskService:TaskService){}
+  constructor(private taskService:TaskService,private modalService: BsModalService){}
 
   ngOnInit(): void {
    this.getTasks();
@@ -60,5 +62,8 @@ export class TaskSectionComponent implements OnInit{
    });
 
   }
-
+  openModalWithComponent() {
+    this.bsModalRef = this.modalService.show(AddTaskModalComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
 }
