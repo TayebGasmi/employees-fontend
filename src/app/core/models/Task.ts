@@ -1,6 +1,8 @@
+import {TaskType} from "./TaskType";
+
 export class Skill{
   taskId!:String;
-  taskType!:Tasktype;
+  taskType!:TaskType
   taskDescription!:String;
   taskTime!:number;
   taskTitle!:string;

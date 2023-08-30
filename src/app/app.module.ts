@@ -3,22 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TableComponent } from './shared/components/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskModule } from './module/task/task.module';
+import {SharedModule} from "./shared/shared.module";
+import {SkillModule} from "./module/skill/skill.module";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TaskModule
+    TaskModule,
+    SharedModule,
+    SkillModule,
+    ToastrModule.forRoot({closeButton:true,enableHtml:true,progressBar:true}),
   ],
   providers: [],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

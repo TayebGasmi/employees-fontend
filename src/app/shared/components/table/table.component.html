@@ -13,7 +13,7 @@
           *ngTemplateOutlet="header.template; context: { $implicit: element }"
         ></ng-container>
       </ng-container>
-      <ng-template #defaultCell>{{ element[header.dataKey] }}</ng-template>
+      <ng-template #defaultCell>{{ element[header.dataKey]| titlecase }}</ng-template>
     </td>
     <td *ngIf="actions">
       <ng-container *ngTemplateOutlet="actions; context: { $implicit: element }"></ng-container>

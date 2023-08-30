@@ -5,7 +5,11 @@ const routes: Routes = [
   {
    path:'tasks',
    loadChildren: ()=> import('./module/task/task.module').then(m=>m.TaskModule)
-}
+  },
+  {
+    path:'skill',
+    loadChildren: ()=> import('./module/skill/skill.module').then(m=>m.SkillModule)
+  }
 ];
 
 @NgModule({
