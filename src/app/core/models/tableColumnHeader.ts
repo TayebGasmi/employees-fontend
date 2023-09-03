@@ -3,5 +3,5 @@ import {TemplateRef} from "@angular/core";
 export interface TableColumnHeader {
   displayName?: string,
   dataKey: string
-  template?:TemplateRef<any>|null
+  template?: TemplateRef<any> | null
 }

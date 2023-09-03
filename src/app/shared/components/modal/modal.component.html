@@ -1,13 +1,25 @@
-<button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+<ng-template #defaultOpenButton>
+  <button [ngClass]="openButtonClass" type="button">{{openButtonLabel}}</button>
+</ng-template>
 
-<ng-template #template>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+<div (click)="openModal(modal)">
+  <ng-container *ngTemplateOutlet="openButton || defaultOpenButton ">
+  </ng-container>
+</div>
+
+<ng-template #modal>
+  <div class="modal-header ">
+    <h4 class="modal-title pull-left">{{title}}</h4>
+    <button (click)="modalRef?.hide()" aria-label="Close" class="btn-close close pull-right" type="button">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    This is a modal.
+    <ng-container *ngIf="modalBody">
+      <ng-container
+        *ngTemplateOutlet="modalBody ; context: { $implicit: modalRef }"
+      ></ng-container>
+    </ng-container>
   </div>
 </ng-template>
+

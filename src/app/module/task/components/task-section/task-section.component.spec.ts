@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TaskSectionComponent } from './task-section.component';
+import {TaskSectionComponent} from './task-section.component';
 
 describe('TaskSectionComponent', () => {
   let component: TaskSectionComponent;
@@ -8,9 +8,9 @@ describe('TaskSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaskSectionComponent ]
+      declarations: [TaskSectionComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TaskSectionComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EditSprintModalComponent } from './edit-sprint-modal.component';
+import {EditSprintModalComponent} from './edit-sprint-modal.component';
 
 describe('EditSprintModalComponent', () => {
   let component: EditSprintModalComponent;
@@ -8,9 +8,9 @@ describe('EditSprintModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditSprintModalComponent ]
+      declarations: [EditSprintModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(EditSprintModalComponent);
     component = fixture.componentInstance;

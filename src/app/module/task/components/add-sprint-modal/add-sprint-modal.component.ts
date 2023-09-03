@@ -1,10 +1,9 @@
-import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { timestamp } from 'rxjs';
-import { Sprint } from 'src/app/core/models/Sprint';
-import { SprintServiceService } from 'src/app/core/service/sprint-service.service';
+import {DatePipe} from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {BsModalRef} from 'ngx-bootstrap/modal';
+import {Sprint} from 'src/app/core/models/Sprint';
+import {SprintServiceService} from 'src/app/core/service/sprint-service.service';
 
 @Component({
   selector: 'app-add-sprint-modal',
@@ -12,34 +11,33 @@ import { SprintServiceService } from 'src/app/core/service/sprint-service.servic
   styleUrls: ['./add-sprint-modal.component.scss']
 })
 export class AddSprintModalComponent implements OnInit {
-  sprint!:Sprint;
+  sprint!: Sprint;
+  addSprintForm = this.fb.group({
 
+    sprintTitle: new FormControl('', Validators.required),
+    sprintDescription: new FormControl('', Validators.required),
+    startDate: new FormControl(''),
+    endDate: new FormControl('')
+
+  })
 
   constructor(public bsModalRef: BsModalRef,
               private fb: FormBuilder,
-              private spritService:SprintServiceService,
-              private datePipe: DatePipe)
-              {}
-
-addSprintForm = this.fb.group({
-
-sprintTitle: new FormControl('',Validators.required),
-sprintDescription:new FormControl('',Validators.required),
-startDate: new FormControl(''),
-endDate:new FormControl('')
-
-})
+              private spritService: SprintServiceService,
+              private datePipe: DatePipe) {
+  }
 
   ngOnInit() {
 
   }
-onSubmit(myForm:FormGroup){
-   this.sprint = myForm.value;
 
-   console.log(this.sprint.startDate);
-   this.spritService.saveSprint(this.sprint);
-   this.bsModalRef.hide();
-   window.location.reload();
-}
+  onSubmit(myForm: FormGroup) {
+    this.sprint = myForm.value;
+
+    console.log(this.sprint.startDate);
+    this.spritService.saveSprint(this.sprint);
+    this.bsModalRef.hide();
+    window.location.reload();
+  }
 
 }

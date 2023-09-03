@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TaskBadgeComponent } from './task-badge.component';
+import {TaskBadgeComponent} from './task-badge.component';
 
 describe('TaskBadgeComponent', () => {
   let component: TaskBadgeComponent;
@@ -8,9 +8,9 @@ describe('TaskBadgeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaskBadgeComponent ]
+      declarations: [TaskBadgeComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TaskBadgeComponent);
     component = fixture.componentInstance;

@@ -1,5 +1,5 @@
 <table class="table table-hover table border">
-  <thead class="table-dark" *ngIf="headers">
+  <thead *ngIf="headers" class="table-dark">
   <tr>
     <th *ngFor="let head of headers">{{ (head.displayName || head.dataKey) | titlecase }}</th>
     <th *ngIf="actions">Actions</th>

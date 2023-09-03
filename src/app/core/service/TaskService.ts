@@ -1,9 +1,8 @@
-
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Task } from '../models/Task';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
+import {Task} from '../models/Task';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable({
@@ -12,26 +11,32 @@ import { HttpClient } from '@angular/common/http';
 export class TaskService {
   readonly API_URL = environment.taskUrl;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  getAllUndeletedTasks():Observable<Task[]>{
-    return this.httpClient.get<Task[]>(this.API_URL+"/undeleted")
+  getAllUndeletedTasks(): Observable<Task[]> {
+    return this.httpClient.get<Task[]>(this.API_URL + "/undeleted")
   }
-  deleteTask(id:String){
 
-     this.httpClient.put<Task>(this.API_URL+"/delete/"+id,"").subscribe();
+  deleteTask(id: String) {
+
+    this.httpClient.put<Task>(this.API_URL + "/delete/" + id, "").subscribe();
   }
-  duplicateTask(id:String){
-    console.log(this.API_URL+"/duplicate/"+id);
-   this.httpClient.post<Task>(this.API_URL+"/duplicate/"+id,"").subscribe();
+
+  duplicateTask(id: String) {
+    console.log(this.API_URL + "/duplicate/" + id);
+    this.httpClient.post<Task>(this.API_URL + "/duplicate/" + id, "").subscribe();
   }
-  saveTask(task:Task){
-     return this.httpClient.post<Task>(`${this.API_URL}`,task);
+
+  saveTask(task: Task) {
+    return this.httpClient.post<Task>(`${this.API_URL}`, task);
   }
- updateTask(task:Task,taskId:any){
-  return this.httpClient.put<Task>(`${this.API_URL}/${taskId}`,task);
- }
- selectTasksPerSprint(sprintId:String):Observable<Task[]>{
-  return this.httpClient.get<Task[]>(`${this.API_URL}/tasks-per-sprints/${sprintId}`)
-}
+
+  updateTask(task: Task, taskId: any) {
+    return this.httpClient.put<Task>(`${this.API_URL}/${taskId}`, task);
+  }
+
+  selectTasksPerSprint(sprintId: String): Observable<Task[]> {
+    return this.httpClient.get<Task[]>(`${this.API_URL}/tasks-per-sprints/${sprintId}`)
+  }
 }

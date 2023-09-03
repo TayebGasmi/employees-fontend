@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TaskPageComponent } from './task-page.component';
+import {TaskPageComponent} from './task-page.component';
 
 describe('TaskPageComponent', () => {
   let component: TaskPageComponent;
@@ -8,9 +8,9 @@ describe('TaskPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaskPageComponent ]
+      declarations: [TaskPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TaskPageComponent);
     component = fixture.componentInstance;

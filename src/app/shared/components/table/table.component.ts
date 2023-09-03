@@ -2,26 +2,26 @@ import {ChangeDetectionStrategy, Component, ContentChild, Input, OnInit, Templat
 import {TableColumnHeader} from "../../../core/models/tableColumnHeader";
 
 @Component({
-    selector: 'app-table',
-    templateUrl: './table.component.html',
-    styleUrls: ['./table.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableComponent implements OnInit {
-    @Input()
-    dataSource: any[] | undefined
-    @Input()
-    headers: TableColumnHeader[] | undefined
-    @ContentChild("actions", {static: true})
-    actions: TemplateRef<any> | undefined
+  @Input()
+  dataSource?: any[]
+  @Input()
+  headers?: TableColumnHeader[]
+  @ContentChild("actions", {static: true})
+  actions?: TemplateRef<any>
 
-    ngOnInit(): void {
-          if (!this.headers && this.dataSource) {
-              if (this.dataSource[0]) {
-                  this.headers = Object.keys(this.dataSource[0]).map(key => ({
-                      dataKey: key
-                  }))
-              }
-          }
+  ngOnInit(): void {
+    if (!this.headers && this.dataSource) {
+      if (this.dataSource[0]) {
+        this.headers = Object.keys(this.dataSource[0]).map(key => ({
+          dataKey: key
+        }))
       }
+    }
+  }
 }

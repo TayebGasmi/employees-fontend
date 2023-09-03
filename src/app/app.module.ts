@@ -24,7 +24,7 @@ import {SortableModule} from 'ngx-bootstrap/sortable';
     TaskModule,
     SharedModule,
     SkillModule,
-    ToastrModule.forRoot({closeButton:true,enableHtml:true,progressBar:true}),
+    ToastrModule.forRoot({closeButton: true, enableHtml: true, progressBar: true}),
     TaskModule,
     HttpClientModule,
     ModalModule.forRoot(),
@@ -34,4 +34,5 @@ import {SortableModule} from 'ngx-bootstrap/sortable';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

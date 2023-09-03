@@ -7,25 +7,36 @@ import {SkillComponent} from './skill/skill.component';
 import {SharedModule} from "../../shared/shared.module";
 import {HttpClientModule} from "@angular/common/http";
 import {PaginationModule} from "ngx-bootstrap/pagination";
-import { ReactiveFormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
+import {AddSkillComponent} from './add-skill/add-skill.component';
+import {UpdateSkillComponent} from './update-skill/update-skill.component';
+import {AddQuizComponent} from './add-quiz/add-quiz.component';
+import {UpdateQuizComponent} from './update-quiz/update-quiz.component';
+import {QuizDetailComponent} from './quiz-detail/quiz-detail.component';
 
 
 @NgModule({
   declarations: [
     QuizComponent,
     SkillComponent,
+    AddSkillComponent,
+    UpdateSkillComponent,
+    AddQuizComponent,
+    UpdateQuizComponent,
+    QuizDetailComponent,
 
   ],
-    imports: [
-        CommonModule,
-        SkillRoutingModule,
-        SharedModule,
-        HttpClientModule,
-        PaginationModule,
-        ReactiveFormsModule
-    ],exports:[
+  imports: [
+    CommonModule,
+    SkillRoutingModule,
+    SharedModule,
+    HttpClientModule,
+    PaginationModule,
+    ReactiveFormsModule
+  ], exports: [
     QuizComponent,
     SkillComponent
   ]
 })
-export class SkillModule { }
+export class SkillModule {
+}

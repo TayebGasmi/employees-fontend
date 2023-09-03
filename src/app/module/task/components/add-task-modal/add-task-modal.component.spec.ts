@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddTaskModalComponent } from './add-task-modal.component';
+import {AddTaskModalComponent} from './add-task-modal.component';
 
 describe('AddTaskModalComponent', () => {
   let component: AddTaskModalComponent;
@@ -8,9 +8,9 @@ describe('AddTaskModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddTaskModalComponent ]
+      declarations: [AddTaskModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AddTaskModalComponent);
     component = fixture.componentInstance;
