@@ -1,0 +1,63 @@
+<form *ngIf="this.fields.length>0" [formGroup]="form">
+  <ng-container *ngFor="let field of fields">
+    <div class="mb-3">
+      <label *ngIf="field.type !='checkbox'" [for]="field.name" class="form-label">{{ field.label }}</label>
+      <ng-container [ngSwitch]="field.type">
+        <input *ngSwitchDefault
+               [formControlName]="field.name"
+               [id]="field.name"
+               [ngClass]="{'is-invalid': showFieldErrors(field.name)}"
+               [placeholder]="field.placeholder || ''"
+               [type]="field.type"
+               class="form-control"
+        />
+        <textarea *ngSwitchCase="'textarea'"
+                  [formControlName]="field.name"
+                  [id]="field.name"
+                  [ngClass]="{'is-invalid': showFieldErrors(field.name)}"
+                  [placeholder]="field.placeholder || ''"
+                  class="form-control"
+        ></textarea>
+        <ng-container *ngSwitchCase="'checkbox'">
+          <div class="form-check">
+            <input [formControlName]="field.name" [id]="field.name" class="form-check-input" type="checkbox">
+            <label [for]="field.name" class="form-check-label">
+              {{field.label}}
+            </label>
+          </div>
+        </ng-container>
+        <select *ngSwitchCase="'select'"
+                [formControlName]="field.name"
+                [id]="field.name"
+                [multiple]="field.multiple || false"
+                [ngClass]="{'is-invalid': showFieldErrors(field.name)}"
+                class="form-select  "
+        >
+          <option *ngIf="field.placeholder">{{field.placeholder}}</option>
+          <option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</option>
+        </select>
+        <ng-container *ngSwitchCase="'radio'">
+          <div *ngFor="let option of field.options;let index=index; " class="form-check">
+            <input [formControlName]="field.name"
+                   [id]="field.name+index"
+                   [name]="field.name"
+                   [ngClass]="{'is-invalid': showFieldErrors(field.name)}"
+                   [value]="option.value"
+                   class="form-check-input"
+                   type="radio"
+            />
+            <label [for]="field.name+index" class="form-check-label"> {{option.label}}</label>
+          </div>
+        </ng-container>
+
+      </ng-container>
+      <ng-container *ngIf="showFieldErrors(field.name)">
+        <div class="invalid-feedback "> invalid {{field.label}}  </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-container *ngTemplateOutlet="formButtons || defaultButtons;context: { $implicit: form }"></ng-container>
+  <ng-template #defaultButtons>
+    <button (click)="onSubmit()" class="btn btn-primary" type="submit">Submit</button>
+  </ng-template>
+</form>

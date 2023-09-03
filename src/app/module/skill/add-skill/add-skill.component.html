@@ -1,0 +1,12 @@
+<app-modal [openButtonClass]="'btn btn-primary m-1'" [openButtonLabel]="'add skill'" [title]="'add skill'">
+  <ng-template #modalBody let-modal>
+    <app-form [fields]="SkillForm">
+      <ng-template #formButtons let-form>
+        <div class="d-flex justify-content-between">
+          <button (click)="addSkill(form,modal)" class="btn btn-primary">add</button>
+          <button (click)="form.reset()" class="btn btn-secondary">reset</button>
+        </div>
+      </ng-template>
+    </app-form>
+  </ng-template>
+</app-modal>
