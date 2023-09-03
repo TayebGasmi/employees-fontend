@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {QuizComponent} from "./quiz/quiz.component";
 import {SkillComponent} from "./skill/skill.component";
 import {QuizDetailComponent} from "./quiz-detail/quiz-detail.component";
+import {QuizQuestionComponent} from "./quiz-question/quiz-question.component";
 
 const routes: Routes = [
 
@@ -21,10 +22,17 @@ const routes: Routes = [
       {
         path: "quiz/detail/:id",
         component: QuizDetailComponent,
+      },
+      {
+        path: "quiz/question/:id",
+        component: QuizQuestionComponent,
       }
-    ]
+
+    ],
+
 
   },
+
 
 
 ];

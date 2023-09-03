@@ -38,6 +38,9 @@ export class QuizService {
   getQuizQuestions(quizId: number): Observable<Question[]> {
     return this.http.get<Question[]>(`${this.baseUrl}/${quizId}/questions`);
   }
+  getQuizById(quizId: number): Observable<Quiz> {
+    return this.http.get<Quiz>(`${this.baseUrl}/${quizId}`);
+  }
 
   getQuizzesBySkill(skillId: number, page: number = 0, size: number = 10): Observable<Page<Quiz>> {
     return this.http.get<Page<Quiz>>(`${this.baseUrl}/skill`, {

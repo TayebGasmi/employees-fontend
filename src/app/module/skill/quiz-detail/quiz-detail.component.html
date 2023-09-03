@@ -1,1 +1,11 @@
-<p>quiz-detail works!</p>
+<ng-container *ngIf="Quiz$ |async as quiz">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>{{quiz.name}}</h1>
+        <p>{{quiz.name}}</p>
+      </div>
+    </div>
+    <app-quiz-question ></app-quiz-question>
+  </div>
+</ng-container>

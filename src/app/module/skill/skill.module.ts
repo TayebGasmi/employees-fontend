@@ -13,6 +13,9 @@ import {UpdateSkillComponent} from './update-skill/update-skill.component';
 import {AddQuizComponent} from './add-quiz/add-quiz.component';
 import {UpdateQuizComponent} from './update-quiz/update-quiz.component';
 import {QuizDetailComponent} from './quiz-detail/quiz-detail.component';
+import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { QuestionComponent } from './question/question.component';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import {QuizDetailComponent} from './quiz-detail/quiz-detail.component';
     AddQuizComponent,
     UpdateQuizComponent,
     QuizDetailComponent,
+    QuizQuestionComponent,
+    AddQuestionComponent,
+    QuestionComponent,
 
   ],
   imports: [
