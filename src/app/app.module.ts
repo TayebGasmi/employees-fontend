@@ -12,10 +12,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SortableModule} from 'ngx-bootstrap/sortable';
+import {TableComponent} from './shared/components/table/table.component';
+import {DashboardingModule} from './module/dashboarding/dashboarding.module';
+import {GraphQLModule} from './graphql.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -26,13 +30,14 @@ import {SortableModule} from 'ngx-bootstrap/sortable';
     SkillModule,
     ToastrModule.forRoot({closeButton: true, enableHtml: true, progressBar: true}),
     TaskModule,
+    DashboardingModule,
     HttpClientModule,
     ModalModule.forRoot(),
     ReactiveFormsModule,
-    SortableModule.forRoot()
+    SortableModule.forRoot(),
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
