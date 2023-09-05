@@ -16,11 +16,13 @@
       <ng-container formArrayName="options">
         <div class="row">
           <div class="col-12" *ngFor="let option of optionsArray.controls as options; let i = index">
-            <div class="input-group mb-3" [formGroupName]="i">
-              <span class="input-group-text" id="basic-addon1">{{ i + 1 }}</span>
+            <div  [formGroupName]="i">
+
               <div class="mb-3">
-                <label class="form-label">Option Text:</label>
-                <input type="text" class="form-control" formControlName="optionText">
+                <span class="badge bg-primary rounded-pill">{{i+1 }}</span>
+                <label class="form-label mx-1">  Option Text:</label>
+                <textarea  type="text" class="form-control" formControlName="optionText">
+                </textarea>
                 <div class="invalid-feedback">Option text is required.</div>
               </div>
               <div class="form-check form-switch">

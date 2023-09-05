@@ -19,7 +19,7 @@ import {GraphQLModule} from './graphql.module';
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent
+
   ],
   imports: [
     BrowserModule,
@@ -29,7 +29,6 @@ import {GraphQLModule} from './graphql.module';
     SharedModule,
     SkillModule,
     ToastrModule.forRoot({closeButton: true, enableHtml: true, progressBar: true}),
-    TaskModule,
     DashboardingModule,
     HttpClientModule,
     ModalModule.forRoot(),
