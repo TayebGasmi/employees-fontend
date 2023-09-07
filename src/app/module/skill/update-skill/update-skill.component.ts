@@ -4,7 +4,7 @@ import {FormGroup} from "@angular/forms";
 import {BsModalRef} from "ngx-bootstrap/modal";
 import {SkillService} from "../../../core/service/skill.service";
 import {NotificationService} from "../../../shared/service/notification.service";
-import {tap} from "rxjs";
+import {catchError, tap} from "rxjs";
 import {Skill} from "../../../core/models/Skill";
 
 @Component({
@@ -36,7 +36,16 @@ export class UpdateSkillComponent {
         );
         modal.hide();
         this.skillService.updateSkills(value);
-      })
+      }),
+      catchError(
+        (err) => {
+          this.notificationService.showError(
+            `Error while updating ${this.skill?.name}`,
+            'Error'
+          );
+          throw err;
+        }
+      )
     ).subscribe();
   }
 }

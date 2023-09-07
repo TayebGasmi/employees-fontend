@@ -1,44 +1,63 @@
-<form [formGroup]="questionForm" (ngSubmit)="submit()">
-  <div class="mb-3">
-    <label class="form-label">Question Text:</label>
-    <input type="text" class="form-control" formControlName="questionText"
-    >
-    <div class="invalid-feedback">Question text is required.</div>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Description:</label>
-    <textarea class="form-control" formControlName="responseDescription"></textarea>
-  </div>
-  <button (click)="addOption()" class="btn btn-outline-success"><i class="bi bi-plus"></i> Add Option</button>
-  <div class="mb-3">
-    <ng-container *ngIf="optionsArray.length > 0">
-      <label class="form-label">Options:</label>
-      <ng-container formArrayName="options">
-        <div class="row">
-          <div class="col-12" *ngFor="let option of optionsArray.controls as options; let i = index">
-            <div  [formGroupName]="i">
+<button class="btn btn-outline-primary" (click)="alterShow()">
+  <i class="bi bi-plus"></i> Add Question
+</button>
+<ng-container *ngIf="show">
+  <form [formGroup]="questionForm" (ngSubmit)="submit()">
+    <ng-container formGroupName="questionDto">
+      <div class="mb-3">
+        <label class="form-label">Question Text:</label>
+        <input type="text" class="form-control" formControlName="questionText" [ngClass]="{'is-invalid': showFieldErrors('questionText')}">
+        <div  class="invalid-feedback" *ngIf="showFieldErrors('questionText') ">Question text is required.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Description:</label>
+        <textarea class="form-control" formControlName="responseDescription" [ngClass]="{'is-invalid': showFieldErrors('responseDescription')}"></textarea>
+        <div  class="invalid-feedback" *ngIf="showFieldErrors('responseDescription') ">response  description is required.</div>
+      </div>
+    </ng-container>
 
-              <div class="mb-3">
-                <span class="badge bg-primary rounded-pill">{{i+1 }}</span>
-                <label class="form-label mx-1">  Option Text:</label>
-                <textarea  type="text" class="form-control" formControlName="optionText">
+    <div class="d-flex justify-content-between">
+      <button (click)="addOption($event)" class="btn btn-outline-success"><i class="bi bi-plus"></i> Add Option</button>
+      <button *ngIf="optionsArray.length > 0" (click)="clearOptions()" class="btn btn-outline-danger"><i class="bi bi-trash"></i> Clear Options</button>
+    </div>
+    <div class="mb-3">
+      <ng-container *ngIf="optionsArray.length > 0">
+        <label class="form-label">Options:</label>
+        <ng-container formArrayName="options">
+          <div class="row">
+            <div class="col-12" *ngFor="let option of optionsArray.controls ; let i = index">
+              <div  [formGroupName]="i">
+
+                <div class="mb-3">
+                  <span class="badge bg-primary rounded-pill">{{i+1 }}</span>
+                  <label class="form-label mx-1">  Option Text:</label>
+                  <textarea  type="text" class="form-control" formControlName="optionText" [ngClass]="{'is-invalid': showOptionErrors('optionText',i)}">
                 </textarea>
-                <div class="invalid-feedback">Option text is required.</div>
+                  <div class="invalid-feedback">Option text is required.</div>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" [id]="'correct ' + i" formControlName="correct" >
+                  <label class="form-check-label" [for]="'correct ' + i">
+                    {{ option?.value?.correct ? 'Correct Option' : 'Wrong Option' }}
+                  </label>
+                </div>
+                <button class="btn btn-outline-danger" type="button" (click)="removeOption(i,$event)">
+                  <i class="bi bi-trash"></i> Remove
+                </button>
               </div>
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" [id]="'isCorrect ' + i" formControlName="isCorrect">
-                <label class="form-check-label" [for]="'isCorrect ' + i">
-                  {{ option?.value?.isCorrect ? 'Correct Option' : 'Wrong Option' }}
-                </label>
-              </div>
-              <button class="btn btn-outline-danger" type="button" (click)="removeOption(i)">
-                <i class="bi bi-trash"></i> Remove
-              </button>
             </div>
           </div>
-        </div>
+        </ng-container>
       </ng-container>
-    </ng-container>
-  </div>
-  <button type="submit" class="btn btn-primary"><i class="bi bi-check"></i> Submit</button>
-</form>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-outline-danger" type="button" (click)="resetForm()">
+        <i class="bi bi-x"></i> Cancel
+      </button>
+      <button class="btn btn-outline-success"  type="submit">
+        <i class="bi bi-check"></i> Save
+      </button>
+    </div>
+  </form>
+
+</ng-container>

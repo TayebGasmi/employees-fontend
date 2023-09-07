@@ -13,6 +13,14 @@ export class QuestionComponent {
 
   }
   @Input() question?:Question;
+  @Input() index?:number;
 
 
+  onEdit(question: Question) {
+    
+  }
+
+  onDelete(question: Question) {
+    
+  }
 }

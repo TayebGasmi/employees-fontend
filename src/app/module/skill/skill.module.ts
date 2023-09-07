@@ -16,6 +16,7 @@ import {QuizDetailComponent} from './quiz-detail/quiz-detail.component';
 import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { QuestionComponent } from './question/question.component';
+import {CarouselModule} from "ngx-bootstrap/carousel";
 
 
 @NgModule({
@@ -32,14 +33,15 @@ import { QuestionComponent } from './question/question.component';
     QuestionComponent,
 
   ],
-  imports: [
-    CommonModule,
-    SkillRoutingModule,
-    SharedModule,
-    HttpClientModule,
-    PaginationModule,
-    ReactiveFormsModule
-  ], exports: [
+    imports: [
+        CommonModule,
+        SkillRoutingModule,
+        SharedModule,
+        HttpClientModule,
+        PaginationModule,
+        ReactiveFormsModule,
+        CarouselModule
+    ], exports: [
     QuizComponent,
     SkillComponent
   ]

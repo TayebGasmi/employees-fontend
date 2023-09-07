@@ -1,6 +1,18 @@
 <ng-container *ngIf="question">
   <div>
+    <div class="d-flex justify-content-between">
+      <h3>Question</h3>
+      <div class="d-flex">
+        <button class="btn btn-primary mr-2" (click)="onEdit(question)">Edit</button>
+        <button class="btn btn-danger" (click)="onDelete(question)">Delete</button>
+      </div>
+    </div>
+    <h4>{{index}}</h4>
     <p>{{question.questionText}}</p>
+    <h3>
+      reason
+    </h3>
     <p>{{question.responseDescription}}</p>
+
   </div>
 </ng-container>
