@@ -1,10 +1,10 @@
 <ng-container *ngIf="question">
-  <div>
+  <div class="border border-primary p-2 mt-2">
     <div class="d-flex justify-content-between">
       <h3>Question</h3>
       <div class="d-flex">
-        <button class="btn btn-primary mr-2" (click)="onEdit(question)">Edit</button>
-        <button class="btn btn-danger" (click)="onDelete(question)">Delete</button>
+        <app-update-question [question]="question"></app-update-question>
+        <button class="btn btn-danger mx-2" (click)="onDelete(question)">Delete</button>
       </div>
     </div>
     <h4>{{index}}</h4>
@@ -13,6 +13,7 @@
       reason
     </h3>
     <p>{{question.responseDescription}}</p>
+    {{question|json}}
 
   </div>
 </ng-container>

@@ -15,5 +15,8 @@ export class QuestionService {
   addQuestionToQuizWithOptions(question: Question, quizId: number): Observable<Question> {
     return this.http.post<Question>(`${this.baseUrl}/quiz/${quizId}`, question);
   }
+  updateQuestionById(question:Question, id:number):Observable<Question>{
+    return this.http.put<Question>(`${this.baseUrl}/${id}`,question)
+  }
 
 }

@@ -17,6 +17,10 @@ import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { QuestionComponent } from './question/question.component';
 import {CarouselModule} from "ngx-bootstrap/carousel";
+import { UpdateQuestionComponent } from './update-question/update-question.component';
+import { DeleteQuestionComponent } from './delete-question/delete-question.component';
+import { DeleteOptionComponent } from './delete-option/delete-option.component';
+import { UpdateOptionComponent } from './update-option/update-option.component';
 
 
 @NgModule({
@@ -31,6 +35,10 @@ import {CarouselModule} from "ngx-bootstrap/carousel";
     QuizQuestionComponent,
     AddQuestionComponent,
     QuestionComponent,
+    UpdateQuestionComponent,
+    DeleteQuestionComponent,
+    DeleteOptionComponent,
+    UpdateOptionComponent,
 
   ],
     imports: [
