@@ -18,5 +18,8 @@ export class QuestionService {
   updateQuestionById(question:Question, id:number):Observable<Question>{
     return this.http.put<Question>(`${this.baseUrl}/${id}`,question)
   }
+  deleteQuestionById(id:number):Observable<any>{
+    return this.http.delete(`${this.baseUrl}/${id}`)
+  }
 
 }
