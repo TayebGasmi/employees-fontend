@@ -1,32 +1,35 @@
-<nav class="mb-2 navbar navbar-expand-lg bg-nav sticky-top border-bottom border-body">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link  " routerLink="">
-                        <i class="bi bi-house"></i> home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " routerLink="skill">
-                        <i class="bi bi-award"></i>
-                        skill</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="tasks">
-                        <i class="bi bi-list-task"></i>
-                        task</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="formation">
-                        <i class="bi bi-book"></i>
-                        formation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="dashboard">
-                        <i class="bi bi-speedometer2"></i>
-                        dashboard</a>
-            </ul>
+<header >
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img
+                        src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+                        height="25"
+                        alt="MDB Logo"
+                        loading="lazy"
+                />
+            </a>
+            <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdownMenuButton" (click)="toggleProfileMenu()" >
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
+                         alt="avatar image" height="35">
+                </span>
+                <div  *ngIf="showProfileMenu" >
+                  <ul class="list-group" >
+                      <button type='button' class='list-group-item list-group-item-action'>
+                             <i class='bi bi-box-arrow-right'></i> Logout
+                        </button>
+                      <button type='button' class='list-group-item list-group-item-action'>
+                          <i class='bi bi-person-circle'></i> Profile
+                      </button>
+                  </ul>
+                </div>
+
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+
+</header>
+<br>
+
+
