@@ -1,12 +1,20 @@
-<app-modal [openButtonClass]="'btn btn-primary m-1'" [openButtonLabel]="'add quiz'" [title]="'add quiz'">
-  <ng-template #modalBody let-modal>
-    <app-form [fields]="QuizForm">
-      <ng-template #formButtons let-form>
-        <div class="d-flex justify-content-between">
-          <button (click)="addQuiz(form,modal)" class="btn btn-primary">add</button>
-          <button (click)="form.reset()" class="btn btn-secondary">reset</button>
-        </div>
-      </ng-template>
-    </app-form>
-  </ng-template>
+<app-modal [title]="'add quiz'">
+    <ng-template #openButton>
+        <button class="btn btn-success"><i class="bi bi-plus"></i> add quiz</button>
+    </ng-template>
+    <ng-template #modalBody let-modal>
+        <app-form [fields]="QuizForm">
+            <ng-template #formButtons let-form>
+                <div class="d-flex justify-content-between">
+                    <button (click)="addQuiz(form,modal)" class="btn btn-success"><i class="bi bi-plus"></i> save
+                    </button>
+                    <button (click)="form.reset()" class="btn btn-secondary">
+                        <i class="bi bi-arrow-counterclockwise"></i>
+                        reset
+                    </button>
+
+                </div>
+            </ng-template>
+        </app-form>
+    </ng-template>
 </app-modal>

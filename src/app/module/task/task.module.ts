@@ -15,24 +15,24 @@ import {EditSprintModalComponent} from './components/edit-sprint-modal/edit-spri
 
 
 @NgModule({
-  declarations: [
-    TaskPageComponent,
-    TaskCardComponent,
-    SprintSectionComponent,
-    TaskSectionComponent,
-    TaskColumnComponent,
-    TaskBadgeComponent,
-    AddTaskModalComponent,
-    EditTaskModalComponent,
-    AddSprintModalComponent,
-    EditSprintModalComponent
-  ],
-  providers: [DatePipe],
-  exports: [TaskPageComponent, TaskCardComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ]
+    declarations: [
+        TaskPageComponent,
+        TaskCardComponent,
+        SprintSectionComponent,
+        TaskSectionComponent,
+        TaskColumnComponent,
+        TaskBadgeComponent,
+        AddTaskModalComponent,
+        EditTaskModalComponent,
+        AddSprintModalComponent,
+        EditSprintModalComponent
+    ],
+    providers: [DatePipe],
+    exports: [TaskPageComponent, TaskCardComponent],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule
+    ]
 })
 export class TaskModule {
 }

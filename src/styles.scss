@@ -1,6 +1,9 @@
-@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
-@import "bootstrap-icons/font/bootstrap-icons.css";
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 @import 'ngx-toastr/toastr-bs5-alert';
+@import 'font-awesome/css/font-awesome.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
+body {
 
+  background-color: #f1f5f9;
+}

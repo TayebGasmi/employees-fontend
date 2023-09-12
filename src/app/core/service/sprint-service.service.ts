@@ -5,24 +5,24 @@ import {environment} from 'src/environments/environment';
 import {Sprint} from '../models/Sprint';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class SprintServiceService {
-  readonly API_URL = environment.sprintUrl;
+    readonly API_URL = environment.sprintUrl;
 
-  constructor(private httpClient: HttpClient) {
-  }
+    constructor(private httpClient: HttpClient) {
+    }
 
-  getAllUndeletedSprints(): Observable<Sprint[]> {
-    return this.httpClient.get<Sprint[]>(`${this.API_URL}/all-undeleted`);
-  }
+    getAllUndeletedSprints(): Observable<Sprint[]> {
+        return this.httpClient.get<Sprint[]>(`${this.API_URL}/all-undeleted`);
+    }
 
-  saveSprint(sprint: Sprint) {
-    return this.httpClient.post<Sprint>(`${this.API_URL}`, sprint).subscribe();
-  }
+    saveSprint(sprint: Sprint) {
+        return this.httpClient.post<Sprint>(`${this.API_URL}`, sprint).subscribe();
+    }
 
-  deleteSprint(sprintId: String) {
-    return this.httpClient.put<Sprint>(`${this.API_URL}/delete/${sprintId}`, '').subscribe();
-  }
+    deleteSprint(sprintId: string) {
+        return this.httpClient.put<Sprint>(`${this.API_URL}/delete/${sprintId}`, '').subscribe();
+    }
 
 }

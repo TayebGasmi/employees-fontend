@@ -1,4 +1,24 @@
-<app-modal t>
+<app-modal title="delete option">
+    <ng-template #openButton>
+        <button class="btn btn-sm btn-danger">
+            <i class="fa fa-trash"></i>
+        </button>
+    </ng-template>
+    <ng-template #modalBody let-modal>
+        <p>are you sure you want to delete this option?</p>
+        <div class="d-flex justify-content-between">
+            <button (click)="delete(modal)" class="btn btn-success">
+                <i class="fa fa-check"></i>
+                confirm
+            </button>
+            <button (click)="modal.hide()" class="btn btn-danger">
+                <i class="fa fa-times"></i>
+                reject
+            </button>
+        </div>
+
+    </ng-template>
 
 </app-modal>
-```
+
+

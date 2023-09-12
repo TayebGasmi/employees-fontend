@@ -3,21 +3,21 @@ import {RouterModule, Routes} from '@angular/router';
 import {TaskPageComponent} from './components/task-page/task-page.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    children: [
-      {
+    {
         path: "",
-        component: TaskPageComponent,
-      }
-    ],
-  },
+        children: [
+            {
+                path: "",
+                component: TaskPageComponent,
+            }
+        ],
+    },
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class TaskRoutingModule {
 }

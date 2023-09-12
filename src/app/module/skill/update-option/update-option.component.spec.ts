@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UpdateOptionComponent } from './update-option.component';
+import {UpdateOptionComponent} from './update-option.component';
 
 describe('UpdateOptionComponent', () => {
-  let component: UpdateOptionComponent;
-  let fixture: ComponentFixture<UpdateOptionComponent>;
+    let component: UpdateOptionComponent;
+    let fixture: ComponentFixture<UpdateOptionComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ UpdateOptionComponent ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [UpdateOptionComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(UpdateOptionComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(UpdateOptionComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

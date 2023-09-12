@@ -1,47 +1,47 @@
-<ng-container *ngIf="inputTaskType == 'BUGFIX'">
+<ng-container *ngIf="inputTaskType === 'BUGFIX'">
 
-  <span class="badge badge-pill badge-danger bug-badg-style"><i class="bi bi-bug"></i>Bug Fix</span>
-
-</ng-container>
-<ng-container *ngIf="inputTaskType == 'FEATURE'">
-
-  <span class="badge badge-pill badge-danger feat-badg-style"> <i class="bi bi-arrow-bar-up"></i>Feature</span>
+    <span class="badge badge-pill badge-danger bug-badg-style"><i class="bi bi-bug"></i>Bug Fix</span>
 
 </ng-container>
-<ng-container *ngIf="inputTaskType == 'DOCUMENTATION'">
+<ng-container *ngIf="inputTaskType === 'FEATURE'">
 
-  <span class="badge badge-pill badge-danger doc-badg-style"> <i class="bi bi-file-text"></i>Documentation</span>
+    <span class="badge badge-pill badge-danger feat-badg-style"> <i class="bi bi-arrow-bar-up"></i>Feature</span>
+
+</ng-container>
+<ng-container *ngIf="inputTaskType === 'DOCUMENTATION'">
+
+    <span class="badge badge-pill badge-danger doc-badg-style"> <i class="bi bi-file-text"></i>Documentation</span>
 
 </ng-container>
 
 
-<ng-container *ngIf="inputTaskStatus == 'WAITING'">
+<ng-container *ngIf="inputTaskStatus === 'WAITING'">
 
-  <span class="badge badge-pill badge-danger wait-badg-style">WAITING</span>
-
-</ng-container>
-<ng-container *ngIf="inputTaskStatus == 'TODO'">
-
-  <span class="badge badge-pill badge-danger todo-badg-style">Todo</span>
+    <span class="badge badge-pill badge-danger wait-badg-style">WAITING</span>
 
 </ng-container>
-<ng-container *ngIf="inputTaskStatus == 'IN_PROGRESS'">
+<ng-container *ngIf="inputTaskStatus === 'TODO'">
 
-  <span class="badge badge-pill badge-danger prog-badg-style"> In Progress</span>
-
-</ng-container>
-<ng-container *ngIf="inputTaskStatus == 'UNDER_REVIEW'">
-
-  <span class="badge badge-pill badge-danger review-badg-style">Review</span>
+    <span class="badge badge-pill badge-danger todo-badg-style">Todo</span>
 
 </ng-container>
-<ng-container *ngIf="inputTaskStatus == 'TEST'">
+<ng-container *ngIf="inputTaskStatus === 'IN_PROGRESS'">
 
-  <span class="badge badge-pill badge-danger test-badg-style">Test</span>
+    <span class="badge badge-pill badge-danger prog-badg-style"> In Progress</span>
 
 </ng-container>
-<ng-container *ngIf="inputTaskStatus == 'DONE'">
+<ng-container *ngIf="inputTaskStatus === 'UNDER_REVIEW'">
 
-  <span class="badge badge-pill badge-danger done-badg-style">DONE</span>
+    <span class="badge badge-pill badge-danger review-badg-style">Review</span>
+
+</ng-container>
+<ng-container *ngIf="inputTaskStatus === 'TEST'">
+
+    <span class="badge badge-pill badge-danger test-badg-style">Test</span>
+
+</ng-container>
+<ng-container *ngIf="inputTaskStatus === 'DONE'">
+
+    <span class="badge badge-pill badge-danger done-badg-style">DONE</span>
 
 </ng-container>

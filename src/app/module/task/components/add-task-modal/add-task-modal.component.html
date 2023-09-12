@@ -1,38 +1,39 @@
 <div>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Add New Task</h4>
-    <button (click)="bsModalRef.hide()" aria-label="Close" class="btn-close close pull-right" type="button">
-      <span aria-hidden="true" class="visually-hidden">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form (ngSubmit)="onSubmit(addTaskForm)" [formGroup]="addTaskForm" class="form">
-      <div class="mb-3">
-        <label class="form-label" for="taskTitle">Task Title</label>
-        <input class="form-control" formControlName="taskTitle" placeholder="title" type="text">
-      </div>
-      <div class="mb-3">
-        <label class="form-label" for="taskDescription">Task Description</label>
-        <textarea class="form-control" formControlName="taskDescription" placeholder="description" rows="3"></textarea>
-      </div>
-      <div class="mb-3">
-        <label class="form-label" for="taskEstimation">Task Estimation</label>
-        <input class="form-control" formControlName="taskEstimation" placeholder="estimation" type="number">
-      </div>
-      <div class="mb-3">
-        <label class="form-label" for="taskTime">Task Time</label>
-        <input class="form-control" formControlName="taskTime" placeholder="time" type="number">
-      </div>
-      <div class="mb-3">
-        <label class="form-label" for="taskType">Task Type</label>
-        <select class="form-control" formControlName="taskType">
-          <option *ngFor="let type of taskTypes" [value]="type">{{type}}</option>
-        </select>
-      </div>
-      <div class="mb-3 d-flex justify-content-center">
-        <button [disabled]="!addTaskForm.valid" class="btn btn-success" type="submit">save</button>
-      </div>
-    </form>
-  </div>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Add New Task</h4>
+        <button (click)="bsModalRef.hide()" aria-label="Close" class="btn-close close pull-right" type="button">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="onSubmit(addTaskForm)" [formGroup]="addTaskForm" class="form">
+            <div class="mb-3">
+                <label class="form-label" for="taskTitle">Task Title</label>
+                <input class="form-control" formControlName="taskTitle" placeholder="title" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="taskDescription">Task Description</label>
+                <textarea class="form-control" formControlName="taskDescription" placeholder="description"
+                          rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="taskEstimation">Task Estimation</label>
+                <input class="form-control" formControlName="taskEstimation" placeholder="estimation" type="number">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="taskTime">Task Time</label>
+                <input class="form-control" formControlName="taskTime" placeholder="time" type="number">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="taskType">Task Type</label>
+                <select class="form-control" formControlName="taskType">
+                    <option *ngFor="let type of taskTypes" [value]="type">{{type}}</option>
+                </select>
+            </div>
+            <div class="mb-3 d-flex justify-content-center">
+                <button [disabled]="!addTaskForm.valid" class="btn btn-success" type="submit">save</button>
+            </div>
+        </form>
+    </div>
 
 </div>

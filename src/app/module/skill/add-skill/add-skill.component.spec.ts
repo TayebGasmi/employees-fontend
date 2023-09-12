@@ -3,21 +3,21 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AddSkillComponent} from './add-skill.component';
 
 describe('AddSkillComponent', () => {
-  let component: AddSkillComponent;
-  let fixture: ComponentFixture<AddSkillComponent>;
+    let component: AddSkillComponent;
+    let fixture: ComponentFixture<AddSkillComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AddSkillComponent]
-    })
-      .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [AddSkillComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(AddSkillComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(AddSkillComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

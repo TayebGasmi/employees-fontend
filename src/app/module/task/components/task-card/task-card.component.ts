@@ -4,39 +4,39 @@ import {TaskService} from 'src/app/core/service/TaskService';
 import {EditTaskModalComponent} from '../edit-task-modal/edit-task-modal.component';
 
 @Component({
-  selector: 'app-task-card',
-  templateUrl: './task-card.component.html',
-  styleUrls: ['./task-card.component.scss']
+    selector: 'app-task-card',
+    templateUrl: './task-card.component.html',
+    styleUrls: ['./task-card.component.scss']
 })
 
 export class TaskCardComponent {
-  @Input() task: any;
-  bsModalRef?: BsModalRef;
+    @Input() task: any;
+    bsModalRef?: BsModalRef;
 
 
-  constructor(private taskService: TaskService,
-              private modalService: BsModalService) {
-  }
+    constructor(private taskService: TaskService,
+                private modalService: BsModalService) {
+    }
 
-  public deleteTask(id: String) {
-    this.taskService.deleteTask(id);
-    this.reload();
+    public deleteTask(id: string) {
+        this.taskService.deleteTask(id);
+        this.reload();
 
-  }
+    }
 
-  public duplicateTask(id: String) {
-    this.taskService.duplicateTask(id);
-    this.reload();
-  }
+    public duplicateTask(id: string) {
+        this.taskService.duplicateTask(id);
+        this.reload();
+    }
 
-  openEditModel() {
-    const task = this.task;
-    this.bsModalRef = this.modalService.show(EditTaskModalComponent, {
-      initialState: task
-    });
-  }
+    openEditModel() {
+        const task = this.task;
+        this.bsModalRef = this.modalService.show(EditTaskModalComponent, {
+            initialState: task
+        });
+    }
 
-  reload() {
-    window.location.reload();
-  }
+    reload() {
+        window.location.reload();
+    }
 }

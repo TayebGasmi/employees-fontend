@@ -8,35 +8,35 @@ import {QuizService} from "../../../core/service/quiz.service";
 import {tap} from "rxjs";
 
 @Component({
-  selector: 'app-update-quiz',
-  templateUrl: './update-quiz.component.html',
-  styleUrls: ['./update-quiz.component.scss']
+    selector: 'app-update-quiz',
+    templateUrl: './update-quiz.component.html',
+    styleUrls: ['./update-quiz.component.scss']
 })
 export class UpdateQuizComponent {
 
-  @Input()
-  Quiz?: Quiz;
-  protected readonly QuizForm = QuizForm;
+    @Input()
+    Quiz?: Quiz;
+    protected readonly QuizForm = QuizForm;
 
-  constructor(private notificationService: NotificationService, private quizService: QuizService) {
-  }
-
-  updateQuiz(form: FormGroup, modal: BsModalRef) {
-    if (form.invalid) {
-      this.notificationService.showError(
-        `Please fill all the required correctly fields`,
-        'Error')
-      return;
+    constructor(private notificationService: NotificationService, private quizService: QuizService) {
     }
-    this.quizService.updateQuizById(this.Quiz?.id ?? 0, form.value).pipe(
-      tap((value) => {
-          this.notificationService.showWarning(
-            `${value.name} updated successfully`,
-            'updated'
-          );
-          modal.hide();
-          this.quizService.updateQuizzes(value);
+
+    updateQuiz(form: FormGroup, modal: BsModalRef) {
+        if (form.invalid) {
+            this.notificationService.showError(
+                `Please fill all the required correctly fields`,
+                'Error')
+            return;
         }
-      )).subscribe();
-  }
+        this.quizService.updateQuizById(this.Quiz?.id ?? 0, form.value).pipe(
+            tap((value) => {
+                    this.notificationService.showWarning(
+                        `${value.name} updated successfully`,
+                        'updated'
+                    );
+                    modal.hide();
+                    this.quizService.updateQuizzes(value);
+                }
+            )).subscribe();
+    }
 }
