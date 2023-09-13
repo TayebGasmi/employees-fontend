@@ -1,35 +1,15 @@
-<header >
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white ">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img
-                        src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                        height="25"
-                        alt="MDB Logo"
-                        loading="lazy"
-                />
-            </a>
-            <div class="dropdown">
-                <span class="dropdown-toggle" id="dropdownMenuButton" (click)="toggleProfileMenu()" >
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
-                         alt="avatar image" height="35">
-                </span>
-                <div  *ngIf="showProfileMenu" >
-                  <ul class="list-group" >
-                      <button type='button' class='list-group-item list-group-item-action'>
-                             <i class='bi bi-box-arrow-right'></i> Logout
-                        </button>
-                      <button type='button' class='list-group-item list-group-item-action'>
-                          <i class='bi bi-person-circle'></i> Profile
-                      </button>
-                  </ul>
-                </div>
-
-            </div>
-        </div>
-    </nav>
-
-</header>
-<br>
-
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">
+    <img src="path/to/your/logo.png" alt="Logo">
+  </a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <!-- Your other navbar items go here -->
+    </ul>
+    <button class="btn btn-primary ml-2" (click)="toggleSidebar()">Open Sidebar</button>
+  </div>
+</nav>
+<app-sidebar ></app-sidebar>

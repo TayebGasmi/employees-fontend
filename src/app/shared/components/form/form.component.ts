@@ -23,10 +23,22 @@ export class FormComponent implements OnInit {
 
     initForm() {
         this.fields.forEach(field => {
-            const fieldValue = this.formData.hasOwnProperty(field.name) ? this.formData[field.name] : '';
+          let defaultValue:string|number|boolean;
+           switch (field.type){
+             case "checkbox":
+               defaultValue=false;
+                break;
+             case "number":
+                defaultValue=0;
+                break;
+              default:
+                defaultValue=""
+
+
+           }
+            const fieldValue = this.formData.hasOwnProperty(field.name) ? this.formData[field.name] : defaultValue;
             const formControl = new FormControl(fieldValue, field.validators, field.asyncValidators);
-            this.form.addControl(field.name, formControl);
-        });
+            this.form.addControl(field.name, formControl);});
     }
 
     showFieldErrors(fieldName: string): boolean | undefined {

@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {SidebarComponent} from "../sidebar/sidebar.component";
 
 @Component({
     selector: 'app-navbar',
@@ -6,8 +7,13 @@ import {Component} from '@angular/core';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-    showProfileMenu=false;
-    toggleProfileMenu() {
-        this.showProfileMenu = !this.showProfileMenu;
-    }
+  @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
+
+  toggleSidebar() {
+    this.sidebar.toggle();
+  }
+
+  openButtonClicked() {
+    this.sidebar.open();
+  }
 }

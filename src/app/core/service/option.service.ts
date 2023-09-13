@@ -16,6 +16,7 @@ export class OptionService {
     }
 
     addOptionToQuestion(option: Option, questionId: number): Observable<Option> {
+       console.log(option)
         return this.http.post<Option>(`${this.baseUrl}/${questionId}`, option);
     }
 

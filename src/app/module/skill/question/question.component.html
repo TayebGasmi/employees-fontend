@@ -14,6 +14,8 @@
         <h3 class="mb-3">{{ question.questionText }}</h3>
         <span class="grey">Reason</span>
         <p>{{ question.responseDescription }}</p>
+      <app-add-option *ngIf="question && question.id" [questionId]="question.id" [updateQuestions$]="updateQuestions$"
+                      class="mx-1"></app-add-option>
         <!-- List of Options -->
         <div class="list-group">
             <div *ngFor="let option of question.options" class="list-group-item list-group-item-action">
@@ -29,6 +31,7 @@
                         </span>
                             {{ option.optionText }}
                         </span>
+
                         <div class="d-flex">
                             <!-- Update and Delete Buttons for Options -->
                             <app-update-option [option]="option" [updateQuestions$]="updateQuestions$"

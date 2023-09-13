@@ -1,16 +1,19 @@
 <app-modal [title]="'add option'">
     <ng-template #openButton>
-        <button class="btn btn-success"><i class="bi bi-plus"></i> add option</button>
+        <button class="btn btn-outline-primary"><i class="bi bi-plus"></i> add option</button>
     </ng-template>
     <ng-template #modalBody let-modal>
-        <app-form [formData]="OptionForm">
+        <app-form [fields]="OptionForm">
             <ng-template #formButtons let-form>
-                <button class="btn btn-success" (click)="addOption(form,modal)"><i class="bi bi-check-circle"></i>
-                    save
-                </button>
-                <button class="btn btn-secondary" (click)="form.reset()"><i class="bi bi-x-circle"></i> cancel
-                </button>
+                <div class="d-flex justify-content-between" >
 
+                  <button class="btn btn-success" (click)="addOption(form,modal)"><i class="bi bi-check-circle"></i>
+                    save
+                  </button>
+                  <button class="btn btn-secondary" (click)="form.reset()"> <i class="bi bi-arrow-counterclockwise"></i>
+                    reset
+                  </button>
+                </div>
 
             </ng-template>
         </app-form>
