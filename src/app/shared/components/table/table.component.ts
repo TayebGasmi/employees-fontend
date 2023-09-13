@@ -9,19 +9,19 @@ import {TableColumnHeader} from "../../../core/models/tableColumnHeader";
 })
 export class TableComponent implements OnInit {
     @Input()
-    dataSource: any[] | undefined
+    dataSource?: any[]
     @Input()
-    headers: TableColumnHeader[] | undefined
+    headers?: TableColumnHeader[]
     @ContentChild("actions", {static: true})
-    actions: TemplateRef<any> | undefined
+    actions?: TemplateRef<any>
 
     ngOnInit(): void {
-          if (!this.headers && this.dataSource) {
-              if (this.dataSource[0]) {
-                  this.headers = Object.keys(this.dataSource[0]).map(key => ({
-                      dataKey: key
-                  }))
-              }
-          }
-      }
+        if (!this.headers && this.dataSource) {
+            if (this.dataSource[0]) {
+                this.headers = Object.keys(this.dataSource[0]).map(key => ({
+                    dataKey: key
+                }))
+            }
+        }
+    }
 }

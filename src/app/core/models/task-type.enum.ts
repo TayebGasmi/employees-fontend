@@ -1,5 +1,5 @@
-export enum TaskType{
-  FEATURE= "FEATURE",
-  BUGFIX = "BUGFIX",
-  DOCUMENTATION = "DOCUMENTATION"
+export enum TaskType {
+    FEATURE = "FEATURE",
+    BUGFIX = "BUGFIX",
+    DOCUMENTATION = "DOCUMENTATION"
 }

@@ -1,40 +1,41 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy, ChangeDetectorRef,
-  Component, OnChanges, SimpleChanges,
-  TemplateRef,
-  ViewChild
-} from '@angular/core';
-import {TableColumnHeader} from "./core/models/tableColumnHeader";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {Validators} from "@angular/forms";
+import {FormField} from "./core/models/FormField";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements AfterViewInit{
-  constructor(private cdr: ChangeDetectorRef) {}
+export class AppComponent {
 
 
-  ngAfterViewInit(): void {
-    this.headers = this.headers = [ {
-      displayName:"ll",
-      template: this.ageTemplate,
-      dataKey: 'age'
-    }];
-    this.cdr.detectChanges()
-  }
-  @ViewChild("age")
-  ageTemplate: TemplateRef<any> | undefined;
+    fields: FormField[] = [
+        {name: 'name', type: 'text', label: 'Name', validators: [Validators.required]},
+        {name: 'email', type: 'email', label: 'Email', validators: [Validators.required, Validators.email]},
+        {name: 'password', type: 'password', label: 'Password', validators: [Validators.required, Validators.minLength(6)]},
+        {name: 'age', type: 'number', label: 'Age', validators: [Validators.required, Validators.min(18)]},
+        {name: 'date', type: 'date', label: 'Date', validators: [Validators.required]},
+        {
+            name: 'select',
+            type: 'select',
+            label: 'Select',
+            validators: [Validators.required],
+            options: [{label: 'Option 1', value: '1'}, {label: 'Option 2', value: '2'}],
+            placeholder: 'Select an option'
+        },
+        {name: 'checkbox', type: 'checkbox', label: 'Checkbox', validators: [Validators.required]},
+        {
+            name: 'radio',
+            type: 'radio',
+            label: 'Radio',
+            validators: [Validators.required],
+            options: [{label: 'Option 1', value: '1'}, {label: 'Option 2', value: '2'}]
+        },
+        {name: 'textarea', type: 'textarea', label: 'Textarea', validators: [Validators.required]},
 
-  data: any[] = [
-    { name: 'Alice', age: 25, email: 'alice@example.com' },
-    { name: 'Bob', age: 30, email: 'bob@example.com' },
-    { name: 'Carol', age: 28, email: 'carol@example.com' }
-  ];
-
-  headers: TableColumnHeader[] | undefined ;
+    ]
 
 
 }

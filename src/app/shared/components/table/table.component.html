@@ -1,23 +1,23 @@
 <table class="table table-hover table border">
-  <thead class="table-dark" *ngIf="headers">
-  <tr>
-    <th *ngFor="let head of headers">{{ (head.displayName || head.dataKey) | titlecase }}</th>
-    <th *ngIf="actions">Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let element of dataSource">
-    <td *ngFor="let header of headers ">
-      <ng-container *ngIf="header.template; else defaultCell">
-        <ng-container
-          *ngTemplateOutlet="header.template; context: { $implicit: element }"
-        ></ng-container>
-      </ng-container>
-      <ng-template #defaultCell>{{ element[header.dataKey] }}</ng-template>
-    </td>
-    <td *ngIf="actions">
-      <ng-container *ngTemplateOutlet="actions; context: { $implicit: element }"></ng-container>
-    </td>
-  </tr>
-  </tbody>
+    <thead *ngIf="headers" class="table-dark">
+    <tr>
+        <th *ngFor="let head of headers">{{ (head.displayName || head.dataKey) | titlecase }}</th>
+        <th *ngIf="actions">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let element of dataSource">
+        <td *ngFor="let header of headers ">
+            <ng-container *ngIf="header.template; else defaultCell">
+                <ng-container
+                        *ngTemplateOutlet="header.template; context: { $implicit: element }"
+                ></ng-container>
+            </ng-container>
+            <ng-template #defaultCell>{{ element[header.dataKey]| titlecase }}</ng-template>
+        </td>
+        <td *ngIf="actions">
+            <ng-container *ngTemplateOutlet="actions; context: { $implicit: element }"></ng-container>
+        </td>
+    </tr>
+    </tbody>
 </table>

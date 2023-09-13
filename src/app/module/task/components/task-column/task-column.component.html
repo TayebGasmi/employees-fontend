@@ -1,13 +1,13 @@
 <div class="task-column d-flex align-items-start flex-column">
-  <div class=" mx-auto justify-content-center">
-    <div>
-  <h3>{{title}}</h3>
-</div>
-</div>
-  <div class="p-2 mx-auto justify-content-center "  *ngFor="let task of mytasks">
-  <app-task-card
-  [task]="task">
-  </app-task-card>
-  </div>
+    <div class=" mx-auto justify-content-center">
+        <div>
+            <h3>{{title}}</h3>
+        </div>
+    </div>
+    <div *ngFor="let task of mytasks" class="p-2 mx-auto justify-content-center ">
+        <app-task-card
+                [task]="task">
+        </app-task-card>
+    </div>
 
 </div>

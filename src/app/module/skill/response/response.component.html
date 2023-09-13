@@ -1,0 +1,16 @@
+<ng-container *ngIf="question">
+    <div class="mt-5">
+        <span class="grey">Question {{ index + 1 | number }}</span>
+        <h3 class="mb-3">{{ question.questionText }}</h3>
+        <div class="list-group">
+            <div *ngFor="let option of question.options" class="list-group-item list-group-item-action ">
+                <div class="form-check">
+                    <input [id]="option.id" class="form-check-input" name="flexCheckboxDefault" type="checkbox">
+                    <label [htmlFor]="option.id" class="form-check-label stretched-link">
+                        {{option.optionText}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

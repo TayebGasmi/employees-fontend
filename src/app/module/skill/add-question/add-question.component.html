@@ -1,0 +1,80 @@
+<button (click)="alterShow()" class="btn btn-outline-primary mt-1">
+    <i class="bi bi-plus"></i> Add Question
+</button>
+<ng-container *ngIf="show">
+    <form (ngSubmit)="submit()" [formGroup]="questionForm">
+        <ng-container formGroupName="questionDto">
+            <div class="mb-3">
+                <label class="form-label">Question Text:</label>
+                <input [ngClass]="{'is-invalid': showFieldErrors('questionText')}" class="form-control"
+                       formControlName="questionText"
+                       type="text">
+                <div *ngIf="showFieldErrors('questionText') " class="invalid-feedback">Question text is required.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description:</label>
+                <textarea [ngClass]="{'is-invalid': showFieldErrors('responseDescription')}" class="form-control"
+                          formControlName="responseDescription"></textarea>
+                <div *ngIf="showFieldErrors('responseDescription') " class="invalid-feedback">response description is
+                    required.
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="d-flex justify-content-between">
+            <button (click)="addOption($event)" class="btn btn-outline-success"><i class="bi bi-plus"></i> Add Option
+            </button>
+            <button (click)="clearOptions()" *ngIf="optionsArray.length > 0" class="btn btn-outline-danger"><i
+                    class="bi bi-trash"></i> Clear Options
+            </button>
+        </div>
+        <div class="mb-3">
+            <ng-container *ngIf="optionsArray.length > 0">
+                <label class="form-label">Options:</label>
+                <ng-container formArrayName="options">
+                    <div class="row">
+                        <div *ngFor="let option of optionsArray.controls ; let i = index" class="col-12">
+                            <div [formGroupName]="i">
+
+                                <div class="mb-3">
+                                    <span class="badge bg-primary rounded-pill">{{i + 1 }}</span>
+                                    <div class="d-flex justify-content-between"
+                                    >
+                                        <label class="form-label mx-1"> Option Text:</label>
+                                        <button (click)="removeOption(i,$event)" class="btn btn-outline-danger mb-2"
+                                                type="button">
+                                            <i class="bi bi-trash"></i> Remove
+                                        </button>
+                                    </div>
+
+                                    <textarea [ngClass]="{'is-invalid': showOptionErrors('optionText',i)}"
+                                              class="form-control" formControlName="optionText"
+                                              type="text">
+                </textarea>
+                                    <div class="invalid-feedback">Option text is required.</div>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input [id]="'correct ' + i" class="form-check-input" formControlName="correct"
+                                           type="checkbox">
+                                    <label [for]="'correct ' + i" class="form-check-label">
+                                        {{ option?.value?.correct ? 'Correct Option' : 'Wrong Option' }}
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button (click)="resetForm()" class="btn btn-outline-danger" type="button">
+                <i class="bi bi-x"></i> Cancel
+            </button>
+            <button class="btn btn-outline-success" type="submit">
+                <i class="bi bi-check"></i> Save
+            </button>
+        </div>
+    </form>
+
+</ng-container>

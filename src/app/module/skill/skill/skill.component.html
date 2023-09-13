@@ -1,0 +1,35 @@
+<div class="mb-3 d-flex justify-content-between">
+    <input [formControl]="name" class="m-1 form-control form-control-sm" id="search" placeholder="enter name"
+           style="max-width: 150px" type="search">
+    <app-add-skill></app-add-skill>
+
+</div>
+<ng-container *ngIf="skills$ | async as data">
+
+    <app-table [dataSource]="data.content" [headers]="skillHeaders"
+    >
+        <ng-template #actions let-skill>
+            <div class="d-flex justify-content-start">
+                <app-delete-skill [skillId]="skill.id"></app-delete-skill>
+                <app-update-skill [skill]="skill"></app-update-skill>
+                <a [routerLink]="['/skill/quiz', skill.id]" class="btn btn-primary mx-1"
+                   title="quizzes"> <i class="bi bi-eye-fill"></i> quizzes</a>
+            </div>
+
+        </ng-template>
+    </app-table>
+
+    <div class="row justify-content-end">
+        <div class="col-1 col-md-2 col-sm-4 d-flex align-items-center ">
+            <label class="me-2" for="item-per-page-select">size</label>
+            <select [formControl]="size" class="form-select form-select-sm " id="item-per-page-select">
+                <option *ngFor="let e of paginationDefaults.sizeOptions" [value]="e">{{e}}</option>
+            </select>
+        </div>
+        <pagination *ngIf="totalItems$|async as totalItems " [boundaryLinks]="true" [formControl]="currentPage "
+                    [itemsPerPage]="(size$| async) || 10" [maxSize]="paginationDefaults.maxSize"
+                    [totalItems]="totalItems"
+                    class="col-4 mt-2 me-2"></pagination>
+    </div>
+</ng-container>
+

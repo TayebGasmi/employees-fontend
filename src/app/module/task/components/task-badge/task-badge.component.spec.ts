@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TaskBadgeComponent } from './task-badge.component';
+import {TaskBadgeComponent} from './task-badge.component';
 
 describe('TaskBadgeComponent', () => {
-  let component: TaskBadgeComponent;
-  let fixture: ComponentFixture<TaskBadgeComponent>;
+    let component: TaskBadgeComponent;
+    let fixture: ComponentFixture<TaskBadgeComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ TaskBadgeComponent ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [TaskBadgeComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(TaskBadgeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(TaskBadgeComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

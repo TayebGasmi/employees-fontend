@@ -1,0 +1,16 @@
+<app-modal title="update option">
+    <ng-template #openButton>
+        <button class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></button>
+    </ng-template>
+    <ng-template #modalBody let-modal>
+        <app-form [fields]="OptionForm " [formData]="option">
+            <ng-template #formButtons let-form>
+                <div class="d-flex justify-content-between">
+                    <button (click)="updateOption(form,modal)" class="btn btn-primary">add</button>
+                    <button (click)="form.reset()" class="btn btn-secondary">reset</button>
+                </div>
+            </ng-template>
+        </app-form>
+
+    </ng-template>
+</app-modal>

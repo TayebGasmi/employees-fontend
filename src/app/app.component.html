@@ -1,23 +1,6 @@
-<!-- <app-table [dataSource]="data" [headers]="headers" >
-  <ng-template #actions let-data>
-    <button class="btn btn-primary" >
-      log {{data | json}}
-    </button>
-    <button class="btn btn-primary" >
-      log {{data | json}}
-    </button>
-  </ng-template>
+<app-navbar></app-navbar>
+<main class="mt-2">
+    <router-outlet></router-outlet>
 
-</app-table>
-
-<ng-template #age let-data>
-  <ng-container *ngIf="data.age">
-    <ng-container>
-    custom:    {{ data.age }}
-    </ng-container>
-  </ng-container>
-
-
-</ng-template> -->
-<app-task-page></app-task-page>
+</main>
 

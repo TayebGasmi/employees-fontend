@@ -1,63 +1,72 @@
-<div class="sprint-section-background"  style="max-height: 100%;">
-  <div class="p-1">
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="d-flex justify-content-end" >
-        <div class="p-2"  >
-          <button  type="button" (click)="openModel()" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Create New Sprint" ><i  class="bi bi-plus"></i></button>
-        </div>
-        <div class="p-2"  >
-          <select #sprint id="sprints" class="form-control" (click)="selectSprint(sprint.value)"  >
-            <option value="" disabled selected>Select your option</option>
-            <option *ngFor="let sprint of sprints"   [value]="sprint.id">{{sprint.sprintTitle}} </option>
-          </select>
-        </div>
-        <<ng-container *ngIf="isClicked">
-        <div class="p-2" >
-          <button  type="button" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Edit Sprint" ><i  class="bi bi-pencil p-1"></i></button>
-        </div>
-        <div class="p-2"  >
-          <button  type="button" (click)="deleteSprint(sprint.value)" class="btn btn-outline-light" data-toggle="tooltip" data-placement="bottom" title="Delete Sprint" ><i class="bi bi-trash3 p-1"></i></button>
-        </div>
-      </ng-container>
-      </div>
+<div class="sprint-section-background" style="max-height: 100%;">
+    <div class="p-1">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="d-flex justify-content-end">
+                <div class="p-2">
+                    <button (click)="openModel()" class="btn btn-outline-light" data-placement="bottom"
+                            data-toggle="tooltip"
+                            title="Create New Sprint" type="button"><i class="bi bi-plus"></i></button>
+                </div>
+                <div class="p-2">
+                    <select #sprint (click)="selectSprint(sprint.value)" class="form-control" id="sprints">
+                        <option disabled selected value="">Select your option</option>
+                        <option *ngFor="let sprint of sprints" [value]="sprint.id">{{sprint.sprintTitle}} </option>
+                    </select>
+                </div>
+                <
+                <ng-container *ngIf="isClicked">
+                    <div class="p-2">
+                        <button class="btn btn-outline-light" data-placement="bottom" data-toggle="tooltip"
+                                title="Edit Sprint"
+                                type="button"><i class="bi bi-pencil p-1"></i></button>
+                    </div>
+                    <div class="p-2">
+                        <button (click)="deleteSprint(sprint.value)" class="btn btn-outline-light"
+                                data-placement="bottom"
+                                data-toggle="tooltip" title="Delete Sprint" type="button"><i
+                                class="bi bi-trash3 p-1"></i>
+                        </button>
+                    </div>
+                </ng-container>
+            </div>
 
-   </nav>
-  </div>
-<div class="row" >
-  <div class="col" >
-    <app-task-column
-    [title]="'To DO'"
-    [tasks]="allToDoTasks"
-    >
-  </app-task-column>
-</div>
-  <div class="col" >
-    <app-task-column
-    [title]="'In Progress'"
-    [tasks]="allInProgressTasks"
-    >
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-task-column
+                    [tasks]="allToDoTasks"
+                    [title]="'To DO'"
+            >
+            </app-task-column>
+        </div>
+        <div class="col">
+            <app-task-column
+                    [tasks]="allInProgressTasks"
+                    [title]="'In Progress'"
+            >
 
-    </app-task-column>
-  </div>
-  <div class="col">
-    <app-task-column
-    [title]="'Reveiw'"
-    [tasks]="allUnderReviewTasks"
-    >
+            </app-task-column>
+        </div>
+        <div class="col">
+            <app-task-column
+                    [tasks]="allUnderReviewTasks"
+                    [title]="'Reveiw'"
+            >
 
-    </app-task-column>
-  </div>
-  <div class="col">
-    <app-task-column
-    [title]="'Test'"
-    [tasks]="allTestTasks">
-  </app-task-column>
-  </div>
-  <div class="col">
-    <app-task-column
-    [title]="'Done'"
-    [tasks]="allDoneTasks"
-    ></app-task-column>
-  </div>
-</div>
+            </app-task-column>
+        </div>
+        <div class="col">
+            <app-task-column
+                    [tasks]="allTestTasks"
+                    [title]="'Test'">
+            </app-task-column>
+        </div>
+        <div class="col">
+            <app-task-column
+                    [tasks]="allDoneTasks"
+                    [title]="'Done'"
+            ></app-task-column>
+        </div>
+    </div>
 </div>
